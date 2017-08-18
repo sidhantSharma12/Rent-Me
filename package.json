@@ -1,0 +1,23 @@
+{
+  "name": "rentme",
+  "version": "1.0.0",
+  "description": "Application to rent items",
+  "main": "run.js",
+  "dependencies": {
+    "jsformat": "^0.1.30"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidhantSharma12/Rent-Me.git"
+  },
+  "author": "Sidhant Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sidhantSharma12/Rent-Me/issues"
+  },
+  "homepage": "https://github.com/sidhantSharma12/Rent-Me#readme"
+}
