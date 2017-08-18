@@ -1,12 +1,8 @@
 {
-  "name": "rentme",
+  "name": "rent",
   "version": "1.0.0",
-  "description": "Application to rent items",
-  "main": "run.js",
-  "dependencies": {
-    "jsformat": "^0.1.30"
-  },
-  "devDependencies": {},
+  "description": "rent",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
