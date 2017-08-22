@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var MongoClient = require('mongodb').MongoClient;
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -41,6 +43,14 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+
+// Connect to the db
+MongoClient.connect("mongodb://localhost:3000/rent", function(err, db) {
+  if(!err) {
+    console.log("We are connected");
+  }
 });
 
 module.exports = app;

@@ -8,6 +8,10 @@ var app = require('../app');
 var debug = require('debug')('react-backend:server');
 var http = require('http');
 
+
+// Retrieve
+var MongoClient = require('mongodb').MongoClient;
+
 /**
  * Get port from environment and store in Express.
  */
@@ -88,3 +92,14 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+// Connect to the db
+MongoClient.connect("mongodb://localhost:3000/exampleDb", function(err, db) {
+  if(!err) {
+    console.log("We are connected");
+  }
+  else{
+    console.log("error");
+  }
+});
