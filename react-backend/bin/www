@@ -93,9 +93,8 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-
 // Connect to the db
-MongoClient.connect("mongodb://localhost:3000/exampleDb", function(err, db) {
+MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) { //db is the database name
   if(!err) {
     console.log("We are connected");
   }
