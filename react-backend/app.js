@@ -45,12 +45,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
-// Connect to the db
-MongoClient.connect("mongodb://localhost:3000/rent", function(err, db) {
-  if(!err) {
-    console.log("We are connected");
-  }
-});
-
 module.exports = app;
