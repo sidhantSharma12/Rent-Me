@@ -15,7 +15,7 @@ class App extends Component {
       <div className="App">
         <h1>Bike Numbers</h1>
         {this.state.users.map(user =>
-          <div>{user._id}</div>
+          <div>{user.mountainBike}</div>
         )}
       </div>
     );
