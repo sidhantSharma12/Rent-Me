@@ -1,0 +1,35 @@
+.header-container{
+	display: flex;
+	flex-direction: row;
+	margin: 0 15%;
+}
+.home{
+	font-size: 35px;
+	flex-grow: 4;
+	text-decoration: none;
+}
+.browse{
+	flex-grow: 1;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.sell{
+	flex-grow: 1;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.my-rent{
+	flex-grow: 1;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.sign-up{
+	flex-grow: 1;
+}
+
+.login{
+	flex-grow: 1;
+}
