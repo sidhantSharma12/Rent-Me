@@ -1,35 +1,51 @@
 .header-container{
 	display: flex;
 	flex-direction: row;
-	margin: 0 15%;
+	margin: 2% 10% 0 2%;
+	justify-content: flex-start;
+
 }
 .home{
-	font-size: 35px;
-	flex-grow: 4;
+	font-size: 30px;
+	flex-grow: 1;
+	font-weight: bold;
 	text-decoration: none;
+	color: rgb(0, 77, 255);
 }
 .browse{
-	flex-grow: 1;
+	flex-grow: 0.25;
 	background-color: transparent;
 	border-color: transparent;
+	color: black;
+	font-size: 15px;
+	font-weight: bold;
 }
 
 .sell{
-	flex-grow: 1;
+	flex-grow: 0.25;
 	background-color: transparent;
 	border-color: transparent;
+	color: black;
+	font-size: 15px;
+	font-weight: bold;
+
 }
 
 .my-rent{
-	flex-grow: 1;
+	flex-grow: 0.25;
 	background-color: transparent;
 	border-color: transparent;
+	color: black;
+	font-size: 15px;
+	font-weight: bold;
 }
 
 .sign-up{
-	flex-grow: 1;
+	flex-grow: 16;
+	text-align: right;
 }
 
 .login{
 	flex-grow: 1;
+	text-align: center;
 }

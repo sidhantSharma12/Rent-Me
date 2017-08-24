@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import App from './App.jsx';
 import Test from './Test.jsx';
-import Header from './Header.jsx'
-import { Switch, Route, Link } from 'react-router-dom'
+import Header from './Header.jsx';
+import Search from './Search.jsx';
+import { Switch, Route, Link } from 'react-router-dom';
 
 class Main extends Component {
 
@@ -10,6 +11,7 @@ class Main extends Component {
     return (
     	<div>
 		    <Header/>
+		    <Search/>
 		    <Switch>
 			    <Route exact path='/' component={App}/>
 			    <Route path='/hello' component={Test}/>
