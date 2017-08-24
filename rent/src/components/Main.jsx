@@ -12,7 +12,7 @@ class Main extends Component {
         <Route path='/hello' component={Test}/>
       </Switch>
     );
-
+  }
 }
 
 export default Main;

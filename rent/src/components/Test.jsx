@@ -4,9 +4,9 @@ class Test extends Component {
 
   render() {
     return (
-      <div> Hello </div>
+      <div> Wats gud dawg </div>
     );
-
+  }
 }
 
 export default Test;
