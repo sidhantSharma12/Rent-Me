@@ -2,6 +2,8 @@
 	display: flex;
 	flex-direction: row;
 	margin: 2% 10% 0 2%;
+	padding: 10px;
+	background-color: #FFD441;
 }
 
 .search-photo{
@@ -10,23 +12,38 @@
 
 .search{
 	flex-grow: 10;
+	height: 30px;
+	border-radius: 5px;
+	border-color: transparent;
+	margin-right: 10px;
 }
 .search-button{
 	background-color: transparent;
 	border-color: transparent;
 	flex-grow: 1;
+	background-color:#D7851A;
+	margin-left: 10px;
 }
 
 .favourite{
 	flex-grow: 1;
+	text-align: center;
+	padding-top: 10px;
+	text-decoration: none;
 }
 
 .watchlist{
 	flex-grow: 1;
+	text-align: center;
+	padding-top: 10px;
+	text-decoration: none;
 }
 
 .cart{
 	flex-grow: 1;
+	text-align: center;
+	padding-top: 10px;
+	text-decoration: none;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
