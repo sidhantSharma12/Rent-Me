@@ -64,6 +64,18 @@ class MostWatchlist extends Component {
   		})
   	});	
   }
+
+  removeImage(event){
+  	event.preventDefault();
+  	console.log('Removed image ' + event.target.id);
+
+  	let updatedImages = Object.assign([], this.state.images);//we don't want to directly change state object
+  		updatedImages.splice(event.target.id ,1);
+
+  		this.setState({
+  			images:updatedImages
+  		})
+  }
   
   render() {
 
@@ -71,6 +83,7 @@ class MostWatchlist extends Component {
   		return(
   			<li key={i}>
   				<img src={image.secure_url}/>
+  				<br/> <a id={i} onClick={this.removeImage.bind(this)} href='#'> Remove </a>
   			</li>
   		)
   	})
@@ -78,6 +91,9 @@ class MostWatchlist extends Component {
     return (
     	<div className="images">
 		   <Dropzone onDrop={this.uploadFile.bind(this)}/>
+		   <ul>
+		   	  {list}
+		   </ul>
         </div>
     );
   }
