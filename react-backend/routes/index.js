@@ -1,3 +1,4 @@
+var imageRouter = require('./image.js');
 var express = require('express');
 var MongoClient = require('mongodb').MongoClient;
 var router = express.Router();
@@ -6,6 +7,9 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
+router.get('/image', imageRouter);
+router.post('/image', imageRouter);
 
 router.get('/thelist', function(req, res){
 	var url= "mongodb://localhost:27017/rental";
