@@ -8,9 +8,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/image', imageRouter);
-router.post('/image', imageRouter);
-
 router.get('/thelist', function(req, res){
 	var url= "mongodb://localhost:27017/rental";
 	MongoClient.connect(url, function(err, db) { //db is the database name
