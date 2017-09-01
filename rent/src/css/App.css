@@ -19,6 +19,22 @@
   font-size: large;
 }
 
+
+
+.App-head {
+  font-size: large;
+}
+
+.App-side{
+  font-size: large;
+}
+
+.App-bottom {
+  font-size: large;
+}
+
+
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
