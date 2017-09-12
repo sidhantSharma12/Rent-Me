@@ -1,4 +1,4 @@
-var imageRouter = require('./image.js');
+//var imageRouter = require('./image.js');
 var express = require('express');
 var MongoClient = require('mongodb').MongoClient;
 var router = express.Router();
