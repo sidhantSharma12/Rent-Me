@@ -12,7 +12,6 @@ class Main extends Component {
   render() {
     return (
     	<div>
-    	<input type="file"/>
 		    <Header/>
 		    <Search/>
 		    <MostWatchlist/>

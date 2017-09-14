@@ -34,7 +34,15 @@ router.get('/thelist', function(req, res){
   	}
 	});
 
+});
 
+router.post('/images', function(req, res){
+  var url= "mongodb://localhost:27017/person";
+  MongoClient.connect(url, function(err, db) { //db is the database name
+
+
+
+  }
 
 });
 

@@ -32,6 +32,7 @@ class MostWatchlist extends Component {
   	const paramsStr = 'timestamp=' + timestamp + '&upload_preset=' + uploadPreset + 'GIiXslpAPjWWRP99Lm5WzwY7iGA';
 
   	const signature = sha1(paramsStr);//encrypt the string
+    var uploaded;
 
   	const params={//JSON object
   		'api_key': '639676249735238',
@@ -53,8 +54,8 @@ class MostWatchlist extends Component {
   			alert(err);
   			return;
   		}
-  		console.log('UPLOAD COMPLETE: ' + JSON.stringify(resp.body));
-  		const uploaded = resp.body;
+  		console.log('UPLOAD COMPLETE: ' + JSON.stringify(resp.body.secure_url));
+  		uploaded = resp.body;
 
   		let updatedImages = Object.assign([], this.state.images);//we don't want to directly change state object
   		updatedImages.push(uploaded);
@@ -62,7 +63,19 @@ class MostWatchlist extends Component {
   		this.setState({
   			images:updatedImages
   		})
-  	});	
+
+      fetch('/images', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          url: resp.body.secure_url
+        })
+      }); 
+
+    });
   }
 
   removeImage(event){
