@@ -10,6 +10,9 @@ import superagent from 'superagent';
 
 import '../css/Images.css';
 
+var sendData=false;
+var uploaded;
+
 class MostWatchlist extends Component {
 
   constructor(){
@@ -32,7 +35,7 @@ class MostWatchlist extends Component {
   	const paramsStr = 'timestamp=' + timestamp + '&upload_preset=' + uploadPreset + 'GIiXslpAPjWWRP99Lm5WzwY7iGA';
 
   	const signature = sha1(paramsStr);//encrypt the string
-    var uploaded;
+   
 
   	const params={//JSON object
   		'api_key': '639676249735238',
@@ -49,6 +52,7 @@ class MostWatchlist extends Component {
   	  uploadRequest.field(key, params[key]);
   	});
 
+ 
   	uploadRequest.end((err, resp) => {
   		if(err){
   			alert(err);
@@ -60,22 +64,13 @@ class MostWatchlist extends Component {
   		let updatedImages = Object.assign([], this.state.images);//we don't want to directly change state object
   		updatedImages.push(uploaded);
 
+      sendData=true;
   		this.setState({
   			images:updatedImages
-  		})
+  		});
 
-      fetch('/images', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          url: resp.body.secure_url
-        })
-      }); 
 
-    });
+    })
   }
 
   removeImage(event){
@@ -89,8 +84,29 @@ class MostWatchlist extends Component {
   			images:updatedImages
   		})
   }
+
+  sendDataMongo(){
+    console.log('got here');
+    fetch('/images', {
+      method: 'POST',
+      headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+      url: uploaded.secure_url
+      })
+    }).then((err, resp) => {
+        sendData=false;
+    }); 
+  }
+
   
   render() {
+
+    if(sendData){
+      this.sendDataMongo();
+    }
 
   	const list = this.state.images.map((image,i) =>{
   		return(

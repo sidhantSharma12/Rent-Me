@@ -37,12 +37,17 @@ router.get('/thelist', function(req, res){
 });
 
 router.post('/images', function(req, res){
-  var url= "mongodb://localhost:27017/person";
+  var url= "mongodb://localhost:27017/rental";
   MongoClient.connect(url, function(err, db) { //db is the database name
 
+    if(!err) {
+      var collection= db.collection("images");
+      collection.insert({url : req.body.url});
+      db.close();
+    }
 
 
-  }
+  });
 
 });
 
