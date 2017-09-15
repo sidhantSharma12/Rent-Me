@@ -2,3 +2,16 @@
 	border-color: blue;
 	border:2px;
 }
+.individual-pic{
+	flex-grow:1;
+	display: inline-block;
+
+}
+.container{
+	display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.my-pics{
+	width: 10%;
+}

@@ -110,8 +110,8 @@ class MostWatchlist extends Component {
 
   	const list = this.state.images.map((image,i) =>{
   		return(
-  			<li key={i}>
-  				<img src={image.secure_url}/>
+  			<li key={i} className="individual-pic">
+  				<img className="my-pics" src={image.secure_url}/>
   				<br/> <a id={i} onClick={this.removeImage.bind(this)} href='#'> Remove </a>
   			</li>
   		)
@@ -120,10 +120,10 @@ class MostWatchlist extends Component {
     return (
     	<div className="images">
 		   <Dropzone onDrop={this.uploadFile.bind(this)}/>
-		   <ul>
+		   <ul className="container">
 		   	  {list}
 		   </ul>
-        </div>
+       </div>
     );
   }
 }
