@@ -5,28 +5,45 @@ class App extends Component {
   
   constructor(props) {
     super(props);
-    this.state = {value: ''};
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+                  username: '',
+                  password:''
+                 };
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleChangeUsername(event) {
+    this.setState({username: event.target.value});
+  }
+
+  handleChangePassword(event) {
+    this.setState({password: event.target.value});
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
+
+    fetch('/signup', {
+      method: 'POST',
+      headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+      username: this.state.username,
+      password: this.state.password
+      })
+    });
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit.bind(this)}>
-        <label>
-          Name: {this.state.value}
-          <input type="text" value={this.state.value} onChange={this.handleChange.bind(this)} />
-        </label>
+        <div> Username {this.state.username}  {this.state.password}</div>
+        <input type="text" value={this.state.username} onChange={this.handleChangeUsername.bind(this)} />
+        <br/>
+        <div> Password </div>
+        <input type="text" value={this.state.password} onChange={this.handleChangePassword.bind(this)} />
+        <br/>
         <input type="submit" value="Submit" />
       </form>
     );
