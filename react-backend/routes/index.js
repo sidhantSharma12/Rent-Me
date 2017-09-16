@@ -74,13 +74,11 @@ router.post('/login', function(req,res){
 
     if(!err) {
       var collection= db.collection("login");
-      collection.find({}).toArray(function(err, result) {
-        if (err) throw err;
-        console.log(result);
+      collection.find({username : req.body.username, password: req.body.password }).toArray(function(err, result) {
+        var found = (result.length ===1 ? true : false); //checks if there is a username and password like that in the database
         db.close();
+        res.json({result : found});
       });
-      
-      res.json({ user: 'tobi' });
     }
   });
 });
