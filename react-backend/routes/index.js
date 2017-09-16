@@ -2,6 +2,8 @@
 var express = require('express');
 var MongoClient = require('mongodb').MongoClient;
 var router = express.Router();
+var bodyParser = require('body-parser');
+router.use(bodyParser.json());
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -50,6 +52,37 @@ router.post('/images', function(req, res){
   });
   res.sendStatus(200);
 
+});
+
+router.post('/signup', function(req,res){
+  var url= "mongodb://localhost:27017/rental";
+  MongoClient.connect(url, function(err, db) { //db is the database name
+
+    if(!err) {
+      var collection= db.collection("login");
+      collection.insert({username : req.body.username, password: req.body.password});
+      db.close();
+      res.json({ user: 'tobi' });
+    }
+  });
+});
+
+
+router.post('/login', function(req,res){
+  var url= "mongodb://localhost:27017/rental";
+  MongoClient.connect(url, function(err, db) { //db is the database name
+
+    if(!err) {
+      var collection= db.collection("login");
+      collection.find({}).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+      });
+      
+      res.json({ user: 'tobi' });
+    }
+  });
 });
 
 module.exports = router;

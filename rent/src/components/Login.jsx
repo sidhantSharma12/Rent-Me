@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../css/signup.css';
+import '../css/login.css';
 
-class Signup extends Component {
-  
+class Login extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +22,7 @@ class Signup extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    fetch('/signup', {
+    fetch('/login', {
       method: 'POST',
       headers: {
       'Accept': 'application/json',
@@ -53,4 +53,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default Login;
