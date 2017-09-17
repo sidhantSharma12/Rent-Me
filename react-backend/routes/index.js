@@ -44,7 +44,7 @@ router.post('/images', function(req, res){
 
     if(!err) {
       var collection= db.collection("user");
-      collection.update({username : req.body.username}, {$set:{'image':req.body.url}});
+      collection.update({username : req.body.username}, {$push:{'image':req.body.url}});
       //collection.insert({url : req.body.url});
       db.close();
     }
