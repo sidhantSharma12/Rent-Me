@@ -86,7 +86,6 @@ class MostWatchlist extends Component {
   }
 
   sendDataMongo(){
-    console.log('got here');
     fetch('/images', {
       method: 'POST',
       headers: {
@@ -94,7 +93,8 @@ class MostWatchlist extends Component {
       'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-      url: uploaded.secure_url
+      url: uploaded.secure_url,
+      username : localStorage.getItem("username")
       })
     }).then((err, resp) => {
         sendData=false;

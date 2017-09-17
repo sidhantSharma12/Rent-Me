@@ -33,8 +33,7 @@ class Signup extends Component {
       username: this.state.username,
       password: this.state.password
       })
-    }).then(res => res.json())
-      .then((res) => {
+    }).then((res) => {
         window.location='/';
     });;
   }

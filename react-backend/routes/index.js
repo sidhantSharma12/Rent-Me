@@ -43,12 +43,11 @@ router.post('/images', function(req, res){
   MongoClient.connect(url, function(err, db) { //db is the database name
 
     if(!err) {
-      var collection= db.collection("images");
-      collection.insert({url : req.body.url});
+      var collection= db.collection("user");
+      collection.update({username : req.body.username}, {$set:{'image':req.body.url}});
+      //collection.insert({url : req.body.url});
       db.close();
     }
-
-
   });
   res.sendStatus(200);
 
@@ -59,7 +58,7 @@ router.post('/signup', function(req,res){
   MongoClient.connect(url, function(err, db) { //db is the database name
 
     if(!err) {
-      var collection= db.collection("login");
+      var collection= db.collection("user");
       collection.insert({username : req.body.username, password: req.body.password});
       db.close();
       res.sendStatus(200);

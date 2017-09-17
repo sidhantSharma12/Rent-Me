@@ -9,7 +9,7 @@ class Sell extends Component {
   render() {
     return (
       <div>
-      	=sdsc
+      	<Images/>
       </div>
     );
   }
