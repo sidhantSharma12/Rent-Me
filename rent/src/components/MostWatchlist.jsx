@@ -12,7 +12,7 @@ class MostWatchlist extends Component {
   render() {
     return (
     	<div className="most-watchlist-container">
-		   <div className="title"> Most watchlisted items </div>
+		   <div className="title"> Recent items </div>
         </div>
     );
   }

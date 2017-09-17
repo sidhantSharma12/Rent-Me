@@ -21,7 +21,8 @@ class Signup extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
+    localStorage.setItem('username', this.state.username);
+    localStorage.setItem('password', this.state.password);    
     fetch('/signup', {
       method: 'POST',
       headers: {
@@ -34,7 +35,7 @@ class Signup extends Component {
       })
     }).then(res => res.json())
       .then((res) => {
-        console.log(res);
+        window.location='/';
     });;
   }
 

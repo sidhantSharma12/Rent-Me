@@ -10,10 +10,10 @@ class Header extends Component {
       <div className="header-container">
       	 <Link to='/' className='home'> Rent<span style={{color:'rgb(249,175,44)'}}>Me </span> </Link> 
 	     <button className="browse"> Browse</button>
-	     <button className="sell"> Sell</button>
+	     <Link to="/sell" className="sell"> Sell</Link>
 	     <button className="my-rent"> My Rent Me</button>
-	     <div className="sign-up"> Sign up</div>
-	     <div className="login"> Log in</div>
+	     <Link to="/signup" className="sign-up"> Sign up</Link>
+	     <Link to="/login" className="login"> Log in</Link>
       </div>
     );
   }

@@ -62,7 +62,7 @@ router.post('/signup', function(req,res){
       var collection= db.collection("login");
       collection.insert({username : req.body.username, password: req.body.password});
       db.close();
-      res.json({ user: 'tobi' });
+      res.sendStatus(200);
     }
   });
 });

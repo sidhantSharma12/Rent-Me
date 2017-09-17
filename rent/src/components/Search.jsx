@@ -13,7 +13,6 @@ class Search extends Component {
       <button className="search-button"> <img className='search-photo' src={photo}/></button>
       <Link to='/' className='favourite'> Favourite </Link>
       <Link to='/' className='watchlist'> Watchlist </Link> 
-      <Link to='/' className='cart'> Cart </Link>
       </div>
     );
   }
