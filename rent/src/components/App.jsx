@@ -4,6 +4,7 @@ import Header from './Header.jsx';
 import Search from './Search.jsx';
 import MostWatchlist from './MostWatchlist.jsx';
 import Images from './Images.jsx';
+import Listings from './Listings.jsx';
 
 class App extends Component {
   state = {users: []}
@@ -20,10 +21,9 @@ class App extends Component {
         <Header/>
         <Search/>
         <MostWatchlist/>
-        <Images/>
-        <h1>Bike Numbers</h1>
+        <Listings/>
         {this.state.users.map(user =>
-          <div>{user.mountainBike}</div>
+          <div></div>
         )}
       </div>
     );

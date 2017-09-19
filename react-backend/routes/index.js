@@ -17,7 +17,7 @@ router.get('/thelist', function(req, res){
   	if(!err) {
     	console.log("We are connected");
 
-    	var collection= db.collection("bike");
+    	var collection= db.collection("user");
     	collection.find({}).toArray(function(err, result){//{} means find everything. toArray builds an array of the returned results
     		if(err){
     			console.log("Unable to find bike collection");
