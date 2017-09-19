@@ -35,7 +35,7 @@ class Signup extends Component {
       })
     }).then((res) => {
         window.location='/';
-    });;
+    });
   }
 
   render() {

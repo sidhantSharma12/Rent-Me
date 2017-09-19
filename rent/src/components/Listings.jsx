@@ -17,6 +17,7 @@ class Listings extends Component {
       if(!user.image){
         return false;
       }
+      
       return(
         <div key={i} className="individual-user">
           <img className="my-pics" src={user.image[0]}/>

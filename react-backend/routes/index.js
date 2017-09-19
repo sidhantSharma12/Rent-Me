@@ -82,4 +82,15 @@ router.post('/login', function(req,res){
   });
 });
 
+router.post('/mylistings', function(req,res){
+  var url= "mongodb://localhost:27017/rental";
+  MongoClient.connect(url, function(err, db) { //db is the database name
+
+    if(!err) {
+      var collection= db.collection("login");
+      
+    }
+  });
+});
+
 module.exports = router;

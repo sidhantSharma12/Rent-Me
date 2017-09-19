@@ -4,6 +4,7 @@ import Test from './Test.jsx';
 import Signup from './Signup.jsx';
 import Login from './Login.jsx';
 import Sell from './Sell.jsx';
+import MyRent from './MyRent.jsx';
 import { Switch, Route} from 'react-router-dom';
 
 class Main extends Component {
@@ -16,6 +17,7 @@ class Main extends Component {
 			    <Route path='/signup' component={Signup}/>
 			    <Route path='/login' component={Login}/>
 			    <Route path='/sell' component={Sell}/>
+			    <Route path='/myrent' component={MyRent}/>
 		    </Switch>
     );
   }
