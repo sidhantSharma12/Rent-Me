@@ -14,6 +14,9 @@ class Listings extends Component {
   render() {
 
     const list = this.state.users.map((user,i) =>{
+      if(!user.image){
+        return false;
+      }
       return(
         <div key={i} className="individual-user">
           <img className="my-pics" src={user.image[0]}/>

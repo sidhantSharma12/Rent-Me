@@ -22,9 +22,6 @@ class App extends Component {
         <Search/>
         <MostWatchlist/>
         <Listings/>
-        {this.state.users.map(user =>
-          <div></div>
-        )}
       </div>
     );
   }
