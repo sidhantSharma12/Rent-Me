@@ -33,11 +33,14 @@ class MyRent extends Component {
   }
 
   render() {
-    var list= <div/>;
-    if(fetched){
 
-    list = this.state.content.final[0].image.map((image,i) =>{
-      return(
+    return (
+      <div className="my-rent">
+      My Rent
+      {(() => { 
+        if(fetched){
+          return this.state.content.final[0].image.map((image,i) =>{
+            return(
               <li key={i} className="my-rent-content">
                 <img className="my-rent-content-pics" src={image}/>
                 <br/>
@@ -45,17 +48,8 @@ class MyRent extends Component {
               </li>
             );
           });
-  }
-
-    return (
-      <div className="my-rent">
-       My Rent
-       {(() => { 
-        
-          return list;
-        
-
-       })()}
+        }
+      })()}
       </div>
     );
   }
