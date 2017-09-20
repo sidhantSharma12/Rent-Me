@@ -60,6 +60,7 @@ class MostWatchlist extends Component {
   		}
   		console.log('UPLOAD COMPLETE: ' + JSON.stringify(resp.body.secure_url));
   		uploaded = resp.body;
+      this.props.hasUploadedphoto(true);
 
   		let updatedImages = Object.assign([], this.state.images);//we don't want to directly change state object
   		updatedImages.push(uploaded);
@@ -119,7 +120,12 @@ class MostWatchlist extends Component {
 
     return (
     	<div className="images">
-		   <Dropzone onDrop={this.uploadFile.bind(this)}/>
+      {(() => { 
+        if(!this.props.parentState.hasUploadedPhoto){
+          return <Dropzone onDrop={this.uploadFile.bind(this)}/>
+        }
+
+      })()}
 		   <ul className="container">
 		   	  {list}
 		   </ul>

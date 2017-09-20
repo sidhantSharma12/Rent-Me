@@ -6,10 +6,37 @@ import '../css/sell.css';
 
 class Sell extends Component {
 
+  constructor(){
+  	super();
+  	this.state = {
+  		hasUploadedPhoto: false
+  	}
+  }
+  hasUploadedPhoto(bool) {
+    this.setState({
+      hasUploadedPhoto: bool
+    })
+  }		
+
+  handleClick(){
+  	window.location='/';
+  }
+
   render() {
     return (
       <div>
-      	<Images/>
+      <div> Upload Picture </div>
+      <Images hasUploadedphoto={this.hasUploadedPhoto.bind(this)} parentState={this.state}/>
+      {(() => { 
+      	if(this.state.hasUploadedPhoto){
+      		return <button onClick={this.handleClick}> Complete </button>
+      	}
+      	else {
+      		return <div> Have not Uploaded Photo </div>
+      	}
+      	
+       })()}
+      
       </div>
     );
   }

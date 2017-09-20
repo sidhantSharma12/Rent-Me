@@ -87,7 +87,10 @@ router.post('/mylistings', function(req,res){
   MongoClient.connect(url, function(err, db) { //db is the database name
 
     if(!err) {
-      var collection= db.collection("login");
+      var collection= db.collection("user");
+      collection.find({username : req.body.username, password:req.body.password}).toArray(function(err, result){
+          console.log(result);
+      });
       
     }
   });
