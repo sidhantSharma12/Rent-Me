@@ -90,7 +90,7 @@ router.post('/mylistings', function(req,res){
     if(!err) {
       var collection= db.collection("user");
       collection.find({username : req.body.username, password:req.body.password}).toArray(function(err, result){
-          console.log(result)
+          res.json({final: result});
       });
       
     }
