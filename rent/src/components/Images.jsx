@@ -18,7 +18,8 @@ class MostWatchlist extends Component {
   constructor(){
   	super();
   	this.state = {
-  		images: []
+  		images: [],
+      content: ''
   	}
   }		
   
@@ -95,13 +96,17 @@ class MostWatchlist extends Component {
       },
       body: JSON.stringify({
       url: uploaded.secure_url,
-      username : localStorage.getItem("username")
+      username : localStorage.getItem("username"),
+      content: this.state.content
       })
     }).then((err, resp) => {
         sendData=false;
     }); 
   }
 
+  handleChangeContent(event) {
+    this.setState({content: event.target.value});
+  }
   
   render() {
 
@@ -122,7 +127,10 @@ class MostWatchlist extends Component {
     	<div className="images">
       {(() => { 
         if(!this.props.parentState.hasUploadedPhoto){
-          return <Dropzone onDrop={this.uploadFile.bind(this)}/>
+          return (<div>
+                    <Dropzone onDrop={this.uploadFile.bind(this)}/>
+                    <input type="text" value={this.state.content} onChange={this.handleChangeContent.bind(this)}/>
+                  </div>);
         }
 
       })()}

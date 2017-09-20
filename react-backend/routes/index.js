@@ -45,6 +45,7 @@ router.post('/images', function(req, res){
     if(!err) {
       var collection= db.collection("user");
       collection.update({username : req.body.username}, {$push:{'image':req.body.url}});
+      collection.update({username : req.body.username}, {$push:{'content':req.body.content}});
       //collection.insert({url : req.body.url});
       db.close();
     }
@@ -89,7 +90,7 @@ router.post('/mylistings', function(req,res){
     if(!err) {
       var collection= db.collection("user");
       collection.find({username : req.body.username, password:req.body.password}).toArray(function(err, result){
-          console.log(result);
+          console.log(result)
       });
       
     }
