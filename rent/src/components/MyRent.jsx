@@ -7,7 +7,7 @@ import Search from './Search.jsx';
 import '../css/header.css';
 import '../css/search.css';
 
-var fetched=false;
+
 class MyRent extends Component {
 
   constructor(){
@@ -30,8 +30,6 @@ class MyRent extends Component {
       })
     }).then(res => res.json())
       .then((result) => {
-        fetched=true;
-        console.log(result);
         this.setState({
           content: result
         });
@@ -46,7 +44,7 @@ class MyRent extends Component {
       <Search/>
       My Rent
       {(() => { 
-        if(fetched){
+        if(this.state.content.final && this.state.content.final[0].image){
           return this.state.content.final[0].image.map((image,i) =>{
             return(
               <li key={i} className="my-rent-content">

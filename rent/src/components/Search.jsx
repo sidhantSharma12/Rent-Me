@@ -11,8 +11,7 @@ class Search extends Component {
       <div className="search-container">
       <input placeholder="Search" className='search'/>
       <button className="search-button"> <img className='search-photo' src={photo}/></button>
-      <Link to='/' className='favourite'> Favourite </Link>
-      <Link to='/' className='watchlist'> Watchlist </Link> 
+      <Link to='/watchlist' className='watchlist'> Watchlist </Link> 
       </div>
     );
   }

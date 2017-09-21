@@ -5,6 +5,7 @@ import Signup from './Signup.jsx';
 import Login from './Login.jsx';
 import Sell from './Sell.jsx';
 import MyRent from './MyRent.jsx';
+import Watchlist from './Watchlist.jsx';
 import { Switch, Route} from 'react-router-dom';
 
 class Main extends Component {
@@ -18,6 +19,7 @@ class Main extends Component {
 			    <Route path='/login' component={Login}/>
 			    <Route path='/sell' component={Sell}/>
 			    <Route path='/myrent' component={MyRent}/>
+			    <Route path='/watchlist' component={Watchlist}/>
 		    </Switch>
     );
   }
