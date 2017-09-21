@@ -25,8 +25,8 @@ class Header extends Component {
          {(() => { 
             if(localStorage.getItem("username")){
               return ([
-                  <Link to="/sell" className="sell"> Sell</Link>,
-                  <Link to='/myrent' className="my-rent"> My Rent Me</Link>
+                  <Link key={0} to="/sell" className="sell"> Sell</Link>,
+                  <Link key={1} to='/myrent' className="my-rent"> My Rent Me</Link>
                 ]);
             }
             else{
@@ -34,7 +34,6 @@ class Header extends Component {
             }
 
          })()}
-  	     
 	       {logBtn}
       </div>
     );

@@ -7,7 +7,8 @@ class Login extends Component {
     super(props);
     this.state = {
                   username: '',
-                  password:''
+                  password:'',
+                  error: false
                  };
   }
 
@@ -34,21 +35,36 @@ class Login extends Component {
       })
     }).then(res => res.json())
       .then((res) => {
-        console.log(res);
+        if(res.result){
+            localStorage.setItem('username', this.state.username);
+            localStorage.setItem('password', this.state.password);
+            window.location='/';
+        }
+        else{
+          this.setState({error: true})
+        }
     });;
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <div> Username</div>
-        <input type="text" value={this.state.username} onChange={this.handleChangeUsername.bind(this)} />
-        <br/>
-        <div> Password </div>
-        <input type="text" value={this.state.password} onChange={this.handleChangePassword.bind(this)} />
-        <br/>
-        <input type="submit" value="Submit" />
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <div> Username</div>
+          <input type="text" value={this.state.username} onChange={this.handleChangeUsername.bind(this)} />
+          <br/>
+          <div> Password </div>
+          <input type="text" value={this.state.password} onChange={this.handleChangePassword.bind(this)} />
+          <br/>
+          <input type="submit" value="Submit" />
+        </form>
+        {(() => { 
+          if(this.state.error){
+            return <div> You typed an incorrect username or password </div>
+          }
+        })()}
+      </div>
+
     );
   }
 }

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import Header from './Header.jsx';
-import Search from './Search.jsx';
+
 import '../css/signup.css';
-import '../css/header.css';
-import '../css/search.css';
+
 
 class Signup extends Component {
   
@@ -45,8 +43,6 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <Header/>
-        <Search/>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div> Username</div>
           <input type="text" value={this.state.username} onChange={this.handleChangeUsername.bind(this)} />
