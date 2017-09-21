@@ -22,10 +22,20 @@ class Header extends Component {
     return (
       <div className="header-container">
       	 <Link to='/' className='home'> Rent<span style={{color:'rgb(249,175,44)'}}>Me </span> </Link> 
-	     <Link to="/sell" className="sell"> Sell</Link>
-	     <Link to='/myrent' className="my-rent"> My Rent Me</Link>
-	     <Link to="/signup" className="sign-up"> Sign up</Link>
-	     {logBtn}
+         {(() => { 
+            if(localStorage.getItem("username")){
+              return ([
+                  <Link to="/sell" className="sell"> Sell</Link>,
+                  <Link to='/myrent' className="my-rent"> My Rent Me</Link>
+                ]);
+            }
+            else{
+              return <Link to="/signup" className="sign-up"> Sign up</Link>
+            }
+
+         })()}
+  	     
+	       {logBtn}
       </div>
     );
   }

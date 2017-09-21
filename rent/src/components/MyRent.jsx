@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import '../css/myrent.css';
 
+import Header from './Header.jsx';
+import Search from './Search.jsx';
+
+import '../css/header.css';
+import '../css/search.css';
+
 var fetched=false;
 class MyRent extends Component {
 
@@ -36,6 +42,8 @@ class MyRent extends Component {
 
     return (
       <div className="my-rent">
+      <Header/>
+      <Search/>
       My Rent
       {(() => { 
         if(fetched){

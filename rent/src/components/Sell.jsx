@@ -4,6 +4,12 @@ import Images from './Images.jsx';
 
 import '../css/sell.css';
 
+import Header from './Header.jsx';
+import Search from './Search.jsx';
+
+import '../css/header.css';
+import '../css/search.css';
+
 class Sell extends Component {
 
   constructor(){
@@ -25,6 +31,8 @@ class Sell extends Component {
   render() {
     return (
       <div>
+      <Header/>
+      <Search/>
       <div> Upload Picture </div>
       <Images hasUploadedphoto={this.hasUploadedPhoto.bind(this)} parentState={this.state}/>
       {(() => { 
