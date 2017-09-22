@@ -10,28 +10,31 @@ class Listings extends Component {
       .then(res => res.json())
       .then((users) => {
         this.setState({ users:users })
-        console.log(users);
       });
+  }
+
+  handleClick(event){
+    console.log(event.target.getAttribute('data-username'));
   }
 
   render() {
     var keynum=0;
-
+    console.log(this.state.users)
     const list = this.state.users.map((user,i) =>{
       if(!user.image){
         return false;
       }
-      
         return user.image.map((image,j) =>{
           keynum++;
           return(
             <div key={keynum} className="individual-user">
               <img className="my-pics" src={image}/>
+              <div>{user.content[j]}</div>
+              <button data-username={user.username} data-index={j} onClick={this.handleClick.bind(this)}> Watchlist </button>
             </div>
           )
       });
     });
-    console.log(list);
 
     return (
       <div className="Listings">
