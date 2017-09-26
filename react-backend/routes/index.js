@@ -97,4 +97,21 @@ router.post('/mylistings', function(req,res){
   });
 });
 
+router.post('/watchlist', function(req,res){
+  var url= "mongodb://localhost:27017/rental";
+  MongoClient.connect(url, function(err, db) { //db is the database name
+
+    if(!err) {
+      var collection= db.collection("user");
+      collection.find({username : req.body.username, password:req.body.password}).toArray(function(err, result){
+          res.json({final: result});
+      });
+      
+    }
+  });
+});
+
+
+
+
 module.exports = router;

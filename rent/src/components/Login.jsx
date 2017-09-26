@@ -43,7 +43,7 @@ class Login extends Component {
         else{
           this.setState({error: true})
         }
-    });;
+    });
   }
 
   render() {
